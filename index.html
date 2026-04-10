@@ -1,13 +1,15 @@
 
 <!doctype html>
 <html>
-      <head><title> registration page </title>
+      <head><title> login page </title>
 	  <style> 
 	  
 	 body {
+             display: flex;
 	     justify-content:center;
 		 align-items:center;
-		 height:100vh
+		 align-items:center;
+                 height: 100vh;
 		 }	 
 	 form {
 	     background-color: yellow;
@@ -15,38 +17,71 @@
 		 font-size: 20px;
 		 padding: 40px;
 		 margin: 80px;
-		length: 40px   
+                 border-radius: 20px;
+                 box-shadow: 0px 0px 15px gray;
+
 		 }
 	label {
          font-size: 20px;	
 	}
 	input {
 		font-size: 14px;
-		font-align: center;
+		text-align: center;
+                border-radius: 10px;
+                line-height:22px;
 		 
 		 }
+          button:hover{
+	      transform:scale(1.1);
+       	      box-shadow:0 5px 15px rgba(0,0,0,0.3);}
+              
+            #b1{
+              font-size: 14px;
+	      text-align: center;
+              border-radius: 10px;
+              line-height:22px;
+}
 	  </style>
 	  </head>
 	  <body>
 
-<form onsubmit="window.location.href='first.html'; return false;">
+<form onsubmit="return showdetails()">
 	  
 	  <h3>student login </h3>
+
 	  <label> USERNAME :</label>
-	  <input placeholder="enetr your username" type="text" required></input><br><br>
+	  <input placeholder="enetr your username" type="text" id="user" required></input><br><br>
+
 	  <label> EMAIL ID :</label>
-	  <input placeholder="enter your email" type="email" required></input><br><br>
+	  <input placeholder="enter your email" type="email" id="email" required></input><br><br>
+
 	  <label> PHONE NO: </label>
-	  <input placeholder="enter your phone no" type="number" required></input><br><br>
+	  <input placeholder="enter your phone no" type="number" id="phone" required></input><br><br>
 	  
  	  <label> PASSWORD :</label>
-	  <input placeholder="enter your password" type="password" required></input><br><br>
+	  <input placeholder="enter your password" type="password" id="pass" required></input><br><br>
 	 
-	  <button onclick="showdetails()"> submit </button>
+	  <button id="b1" type="submit"> submit </button>
 	  
 	 </form> 
 	  
-	
+	<script>
+function showdetails(){
+     var user=document.getElementById('user').value;
+     var email=document.getElementById('email').value;
+     var phone=document.getElementById('phone').value;
+     var pass=document.getElementById('pass').value;
+
+if (user === "" || email === "" || phone === "" || pass === "" ){
+  alert(" please fill all details ");
+  return false;
+  }
+else {
+  alert("login successfull");
+  window.location.href="second.html";
+  return false;
+  }
+}
+</script>
 	  </body>
 </html> 
-
